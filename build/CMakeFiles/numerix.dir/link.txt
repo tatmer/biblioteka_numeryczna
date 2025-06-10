@@ -1,0 +1,2 @@
+/usr/bin/ar qc libnumerix.a CMakeFiles/numerix.dir/src/approximation.cpp.o CMakeFiles/numerix.dir/src/differential_equations.cpp.o CMakeFiles/numerix.dir/src/integration.cpp.o CMakeFiles/numerix.dir/src/interpolation.cpp.o CMakeFiles/numerix.dir/src/linear_algebra.cpp.o CMakeFiles/numerix.dir/src/nonlinear_equations.cpp.o
+/usr/bin/ranlib libnumerix.a

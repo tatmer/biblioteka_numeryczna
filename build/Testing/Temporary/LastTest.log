@@ -1,0 +1,387 @@
+Start testing: Jun 10 21:27 CEST
+----------------------------------------------------------
+1/6 Testing: test_approximation
+1/6 Test: test_approximation
+Command: "/Users/tatsiana/Desktop/Biblioteka/build/test_approximation"
+Directory: /Users/tatsiana/Desktop/Biblioteka/build
+"test_approximation" start time: Jun 10 21:27 CEST
+Output:
+----------------------------------------------------------
+--- Example: Polynomial Approximation ---
+
+--- Correct Test: Valid Degree Approximation ---
+Approximating f(x) = exp(x)*cos(5*x) - x^3 on [-1, 2] with a polynomial of degree 4
+
+Calculated coefficients [a0, a1, ...]:
+a0 = -4.914186e-01
+a1 = -1.829964e+00
+a2 = 2.911141e+00
+a3 = 2.320013e+00
+a4 = -2.734488e+00
+
+--- Comparison Table ---
+x		Exact f(x)	Approx P(x)
+-1.000000		1.104353		-0.804815
+-0.500000		-0.360918		0.690442
+0.000000		1.000000		-0.491419
+0.500000		-1.445863		-0.559519
+1.000000		-0.228926		0.175283
+1.500000		-1.821488		-2.699600
+2.000000		-14.199947		-17.698489
+
+--- Error Test: Negative Polynomial Degree ---
+Attempting to approximate with degree = -1
+Caught expected error: Degree of polynomial must be non-negative.
+<end of output>
+Test time =   0.18 sec
+----------------------------------------------------------
+Test Passed.
+"test_approximation" end time: Jun 10 21:27 CEST
+"test_approximation" time elapsed: 00:00:00
+----------------------------------------------------------
+
+2/6 Testing: test_integration
+2/6 Test: test_integration
+Command: "/Users/tatsiana/Desktop/Biblioteka/build/test_integration"
+Directory: /Users/tatsiana/Desktop/Biblioteka/build
+"test_integration" start time: Jun 10 21:27 CEST
+Output:
+----------------------------------------------------------
+--- Example: Numerical Integration ---
+
+--- Correctness Tests ---
+Rectangle Rule: -10.0573374243, Error: 0.0436726863
+Trapezoid Rule: -10.1010198805, Error: 0.0000097700
+Simpson's Rule: -10.1010101105, Error: 0.0000000001
+Gauss-Legendre (4 nodes, 100 sub): -10.1010101106, Error: 0.0000000000
+
+--- Erroneous Test: Invalid Input ---
+Attempting Rectangle Rule with 0 intervals: Caught expected exception: Number of intervals must be positive.
+
+Attempting Simpson's Rule with 999 (odd) intervals: Unexpected result: -10.1010101105
+
+<end of output>
+Test time =   0.09 sec
+----------------------------------------------------------
+Test Passed.
+"test_integration" end time: Jun 10 21:27 CEST
+"test_integration" time elapsed: 00:00:00
+----------------------------------------------------------
+
+3/6 Testing: test_interpolation
+3/6 Test: test_interpolation
+Command: "/Users/tatsiana/Desktop/Biblioteka/build/test_interpolation"
+Directory: /Users/tatsiana/Desktop/Biblioteka/build
+"test_interpolation" start time: Jun 10 21:27 CEST
+Output:
+----------------------------------------------------------
+--- Example: Lagrange and Newton Interpolation ---
+
+--- Correct Test: Interpolating sin(x) ---
+Using nodes: (0.000000, 0.000000) (1.000000, 0.841471) (2.000000, 0.909297) (3.000000, 0.141120) (4.000000, -0.756802) 
+
+Interpolating at x = 2.500000
+Exact value f(2.500000) = sin(2.500000) = 0.598472
+
+--- Lagrange Interpolation ---
+Result: 0.603583
+Error:  0.005110
+
+--- Newton Interpolation ---
+Result: 0.603583
+Error:  0.005110
+
+Verification: Difference between methods = 0.000000
+
+--- Error Test: Empty nodes list ---
+Attempting Lagrange interpolation with empty nodes...
+Caught expected error for Lagrange: Node vector cannot be empty.
+Attempting Newton interpolation with empty nodes...
+Caught expected error for Newton: Node vector cannot be empty.
+
+--- Error Test: Duplicate X values in nodes ---
+Using nodes: (0.000000, 0.000000) (1.000000, 1.000000) (1.000000, 2.000000) (2.000000, 4.000000) 
+Attempting Lagrange interpolation with duplicate X values...
+Caught expected error for Lagrange: Interpolation nodes must have unique x values.
+Attempting Newton interpolation with duplicate X values...
+Caught expected error for Newton: Interpolation nodes must have unique x values.
+<end of output>
+Test time =   0.11 sec
+----------------------------------------------------------
+Test Passed.
+"test_interpolation" end time: Jun 10 21:27 CEST
+"test_interpolation" time elapsed: 00:00:00
+----------------------------------------------------------
+
+4/6 Testing: test_linear_algebra
+4/6 Test: test_linear_algebra
+Command: "/Users/tatsiana/Desktop/Biblioteka/build/test_linear_algebra"
+Directory: /Users/tatsiana/Desktop/Biblioteka/build
+"test_linear_algebra" start time: Jun 10 21:27 CEST
+Output:
+----------------------------------------------------------
+--- Example: Solving Linear Equations Ax = b ---
+
+Solving system with Gauss Elimination:
+Vector x_gauss: [ -0.3333 0.3333 0.0000 ]
+
+Solving system with LU Decomposition:
+Vector x_lu: [ -0.3333 2.0000 -1.0000 ]
+
+--- Example with a singular matrix ---
+
+Attempting to solve with Gauss Elimination:
+Caught expected error: Matrix is singular or nearly singular.
+
+--- Erroneous Test: Mismatched Dimensions ---
+
+Attempting to solve system with non-square matrix A (3x2) and vector b (size 3):
+Caught expected error for Gauss Elimination: Invalid matrix or vector dimensions.
+
+Attempting to solve system with square matrix A (2x2) and vector b (size 3):
+Caught expected error for LU Decomposition: Invalid matrix or vector dimensions.
+<end of output>
+Test time =   0.09 sec
+----------------------------------------------------------
+Test Passed.
+"test_linear_algebra" end time: Jun 10 21:27 CEST
+"test_linear_algebra" time elapsed: 00:00:00
+----------------------------------------------------------
+
+5/6 Testing: test_ode
+5/6 Test: test_ode
+Command: "/Users/tatsiana/Desktop/Biblioteka/build/test_ode"
+Directory: /Users/tatsiana/Desktop/Biblioteka/build
+"test_ode" start time: Jun 10 21:27 CEST
+Output:
+----------------------------------------------------------
+--- Example: ODE Solvers (Cooling Problem) ---
+Solving ODE with step h = 1 up to t = 1000
+
+--- RK4 Method Results (Correct Case) ---
+Time (s)	Temperature (K)
+0.000000		1198.000000
+100.000000		321.895157
+200.000000		256.319937
+300.000000		224.160352
+400.000000		203.774524
+500.000000		189.229628
+600.000000		178.110910
+700.000000		169.216582
+800.000000		161.868851
+900.000000		155.651078
+1000.000000		150.290454
+...
+1000.000000		150.290454
+
+--- Erroneous Test: Invalid Step Size (h = 0.0) ---
+Attempting to solve with h = 0.000000: Test PASSED: Caught expected error: RK4 method: Step size 'h' must be positive.
+
+--- Erroneous Test: Invalid Time Range (t_max < t0) ---
+Attempting to solve from t0=0.000000 to t_max=-10.000000: Test PASSED: Caught expected error: RK4 method: End time 't_max' cannot be less than start time 't0'.
+
+All tests completed successfully.
+<end of output>
+Test time =   0.20 sec
+----------------------------------------------------------
+Test Passed.
+"test_ode" end time: Jun 10 21:27 CEST
+"test_ode" time elapsed: 00:00:00
+----------------------------------------------------------
+
+6/6 Testing: test_root_finding
+6/6 Test: test_root_finding
+Command: "/Users/tatsiana/Desktop/Biblioteka/build/test_root_finding"
+Directory: /Users/tatsiana/Desktop/Biblioteka/build
+"test_root_finding" start time: Jun 10 21:27 CEST
+Output:
+----------------------------------------------------------
+--- Example: Comparison of Root-Finding Methods ---
+
+=================================================
+==== Funkcja f1 (przedział [-5, 5]) ====
+=================================================
+
+--- Przedzial [0.20000000, 0.40000000] ---
+Bisekcja:       0.34807663
+Regula Falsi:   0.34807676 (Blad vs Bisekcja: 0.00000013)
+Newtona:        0.34807674 (Blad vs Bisekcja: 0.00000011)
+Siecznych:      0.34807674 (Blad vs Bisekcja: 0.00000011)
+
+=================================================
+==== Funkcja f2 (przedział [-5, 5]) ====
+=================================================
+
+--- Przedzial [-1.60000000, -1.40000000] ---
+Bisekcja:       -1.48417125
+Regula Falsi:   -1.48417127 (Blad vs Bisekcja: 0.00000002)
+Newtona:        -1.48417127 (Blad vs Bisekcja: 0.00000002)
+Siecznych:      -1.48417127 (Blad vs Bisekcja: 0.00000002)
+
+--- Przedzial [-0.20000000, 0.00000000] ---
+Bisekcja:       -0.00000005
+Regula Falsi:   -0.20000000 (Blad vs Bisekcja: 0.19999995)
+Newtona:        -1.48417127 (Blad vs Bisekcja: 1.48417122)
+Siecznych:      -0.20000000 (Blad vs Bisekcja: 0.19999995)
+
+--- Przedzial [0.00000000, 0.20000000] ---
+Bisekcja:       0.03335185
+Regula Falsi:   0.20000000 (Blad vs Bisekcja: 0.16664815)
+Newtona:        -1.48417127 (Blad vs Bisekcja: 1.51752312)
+Siecznych:      0.20000000 (Blad vs Bisekcja: 0.16664815)
+
+--- Przedzial [1.60000000, 1.80000000] ---
+Bisekcja:       1.72232580
+Regula Falsi:   1.72232580 (Blad vs Bisekcja: 0.00000000)
+Newtona:        1.72232580 (Blad vs Bisekcja: 0.00000000)
+Siecznych:      1.72232580 (Blad vs Bisekcja: 0.00000000)
+
+--- Przedzial [3.00000000, 3.20000000] ---
+Bisekcja:       3.11797938
+Regula Falsi:   3.11797936 (Blad vs Bisekcja: 0.00000002)
+Newtona:        3.11797936 (Blad vs Bisekcja: 0.00000002)
+Siecznych:      3.11797936 (Blad vs Bisekcja: 0.00000002)
+
+=================================================
+==== Funkcja f3 (przedział [-5, 5]) ====
+=================================================
+
+--- Przedzial [-4.20000000, -4.00000000] ---
+Bisekcja:       -4.00000005
+Regula Falsi:   -4.20000000 (Blad vs Bisekcja: 0.19999995)
+Newtona:        -2.61753419 (Blad vs Bisekcja: 1.38246586)
+Siecznych:      -4.20000000 (Blad vs Bisekcja: 0.19999995)
+
+--- Przedzial [-2.80000000, -2.60000000] ---
+Bisekcja:       -2.61753421
+Regula Falsi:   -2.61753418 (Blad vs Bisekcja: 0.00000002)
+Newtona:        -2.61753419 (Blad vs Bisekcja: 0.00000002)
+Siecznych:      -2.61753419 (Blad vs Bisekcja: 0.00000002)
+
+--- Przedzial [-2.40000000, -2.20000000] ---
+Bisekcja:       -2.35653605
+Regula Falsi:   -2.35653610 (Blad vs Bisekcja: 0.00000004)
+Newtona:        -2.35653606 (Blad vs Bisekcja: 0.00000001)
+Siecznych:      -2.35653606 (Blad vs Bisekcja: 0.00000001)
+
+--- Przedzial [-1.80000000, -1.60000000] ---
+Bisekcja:       -1.65083756
+Regula Falsi:   -1.65083756 (Blad vs Bisekcja: 0.00000000)
+Newtona:        -1.65083759 (Blad vs Bisekcja: 0.00000003)
+Siecznych:      -1.65083759 (Blad vs Bisekcja: 0.00000003)
+
+--- Przedzial [-1.40000000, -1.20000000] ---
+Bisekcja:       -1.35933509
+Regula Falsi:   -1.35933506 (Blad vs Bisekcja: 0.00000003)
+Newtona:        -1.35933506 (Blad vs Bisekcja: 0.00000003)
+Siecznych:      -1.35933506 (Blad vs Bisekcja: 0.00000003)
+
+--- Przedzial [-1.00000000, -0.80000000] ---
+Bisekcja:       -0.96302743
+Regula Falsi:   -0.96302739 (Blad vs Bisekcja: 0.00000004)
+Newtona:        -0.96302740 (Blad vs Bisekcja: 0.00000003)
+Siecznych:      -0.96302740 (Blad vs Bisekcja: 0.00000003)
+
+--- Przedzial [-0.80000000, -0.60000000] ---
+Bisekcja:       -0.70942893
+Regula Falsi:   -0.70942895 (Blad vs Bisekcja: 0.00000002)
+Newtona:        -0.70942895 (Blad vs Bisekcja: 0.00000002)
+Siecznych:      -0.70942895 (Blad vs Bisekcja: 0.00000002)
+
+--- Przedzial [-0.40000000, -0.20000000] ---
+Bisekcja:       -0.28237467
+Regula Falsi:   -0.28237466 (Blad vs Bisekcja: 0.00000001)
+Newtona:        -0.28237468 (Blad vs Bisekcja: 0.00000001)
+Siecznych:      -0.28237468 (Blad vs Bisekcja: 0.00000001)
+
+--- Przedzial [-0.20000000, 0.00000000] ---
+Bisekcja:       -0.05470805
+Regula Falsi:   -0.05470805 (Blad vs Bisekcja: 0.00000000)
+Newtona:        -0.05470805 (Blad vs Bisekcja: 0.00000001)
+Siecznych:      -0.05470805 (Blad vs Bisekcja: 0.00000001)
+
+--- Przedzial [0.20000000, 0.40000000] ---
+Bisekcja:       0.39447532
+Regula Falsi:   0.39447533 (Blad vs Bisekcja: 0.00000001)
+Newtona:        0.39447532 (Blad vs Bisekcja: 0.00000001)
+Siecznych:      0.39447532 (Blad vs Bisekcja: 0.00000001)
+
+--- Przedzial [0.60000000, 0.80000000] ---
+Bisekcja:       0.60289555
+Regula Falsi:   0.60289558 (Blad vs Bisekcja: 0.00000003)
+Newtona:        0.60289558 (Blad vs Bisekcja: 0.00000003)
+Siecznych:      0.60289558 (Blad vs Bisekcja: 0.00000003)
+
+--- Przedzial [1.00000000, 1.20000000] ---
+Bisekcja:       1.06900158
+Regula Falsi:   1.06900162 (Blad vs Bisekcja: 0.00000004)
+Newtona:        1.06900161 (Blad vs Bisekcja: 0.00000003)
+Siecznych:      9.89097632 (Blad vs Bisekcja: 8.82197474)
+
+--- Przedzial [1.20000000, 1.40000000] ---
+Bisekcja:       1.26238508
+Regula Falsi:   1.26238507 (Blad vs Bisekcja: 0.00000002)
+Newtona:        1.26238508 (Blad vs Bisekcja: 0.00000001)
+Siecznych:      1.26238508 (Blad vs Bisekcja: 0.00000001)
+
+--- Przedzial [1.60000000, 1.80000000] ---
+Bisekcja:       1.74197960
+Regula Falsi:   1.74197965 (Blad vs Bisekcja: 0.00000005)
+Newtona:        1.74197962 (Blad vs Bisekcja: 0.00000002)
+Siecznych:      1.74197962 (Blad vs Bisekcja: 0.00000002)
+
+--- Przedzial [1.80000000, 2.00000000] ---
+Bisekcja:       1.92318726
+Regula Falsi:   1.92318725 (Blad vs Bisekcja: 0.00000001)
+Newtona:        1.92318726 (Blad vs Bisekcja: 0.00000000)
+Siecznych:      1.92318726 (Blad vs Bisekcja: 0.00000000)
+
+--- Przedzial [3.00000000, 3.20000000] ---
+Bisekcja:       3.08493671
+Regula Falsi:   3.08493671 (Blad vs Bisekcja: 0.00000000)
+Newtona:        3.08493669 (Blad vs Bisekcja: 0.00000002)
+Siecznych:      3.24742769 (Blad vs Bisekcja: 0.16249098)
+
+--- Przedzial [3.20000000, 3.40000000] ---
+Bisekcja:       3.24742775
+Regula Falsi:   3.24742766 (Blad vs Bisekcja: 0.00000009)
+Newtona:        3.24742769 (Blad vs Bisekcja: 0.00000006)
+Siecznych:      3.24742769 (Blad vs Bisekcja: 0.00000006)
+
+--- Przedzial [3.60000000, 3.80000000] ---
+Bisekcja:       3.75539246
+Regula Falsi:   3.75539246 (Blad vs Bisekcja: 0.00000000)
+Newtona:        3.75539238 (Blad vs Bisekcja: 0.00000007)
+Siecznych:      3.75539238 (Blad vs Bisekcja: 0.00000007)
+
+--- Przedzial [3.80000000, 4.00000000] ---
+Bisekcja:       3.91047058
+Regula Falsi:   3.91047052 (Blad vs Bisekcja: 0.00000006)
+Newtona:        3.91047061 (Blad vs Bisekcja: 0.00000003)
+Siecznych:      3.91047061 (Blad vs Bisekcja: 0.00000003)
+
+=================================================
+==== Błędne Testy: Niepoprawne Dane Wejściowe ====
+=================================================
+
+--- Brak zmiany znaku w przedziale [0.50000000, 1.00000000] dla f1 ---
+Test: Bisekcja z brakiem zmiany znaku: Złapano oczekiwany błąd: f(a) and f(b) must have opposite signs for bisection method.
+Test: Regula Falsi z brakiem zmiany znaku: Złapano oczekiwany błąd: f(a) and f(b) must have opposite signs for Regula Falsi.
+
+--- Newtona: Pochodna bliska zeru (lub problematyczny punkt) dla f3 w x0 = -4.00000000 ---
+Złapano oczekiwany błąd: Function returned NaN during Newton's method iteration (f(x_curr) is NaN).
+
+--- Siecznych: Identyczne punkty startowe [2.00000000, 2.00000000] ---
+Złapano oczekiwany błąd: Secant method: Initial points x0 and x1 are too close.
+
+--- find_root_intervals: Niepoprawny krok = 0.00000000 ---
+Złapano oczekiwany błąd: Step size must be positive for find_root_intervals.
+<end of output>
+Test time =   0.11 sec
+----------------------------------------------------------
+Test Passed.
+"test_root_finding" end time: Jun 10 21:27 CEST
+"test_root_finding" time elapsed: 00:00:00
+----------------------------------------------------------
+
+End testing: Jun 10 21:27 CEST

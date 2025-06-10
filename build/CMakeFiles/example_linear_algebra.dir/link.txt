@@ -1,0 +1,1 @@
+/usr/bin/c++  -arch arm64 -Wl,-search_paths_first -Wl,-headerpad_max_install_names CMakeFiles/example_linear_algebra.dir/examples/example_linear_algebra.cpp.o -o example_linear_algebra  libnumerix.a

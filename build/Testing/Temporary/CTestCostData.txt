@@ -1,0 +1,7 @@
+test_approximation 1 0.184625
+test_integration 1 0.0902886
+test_interpolation 1 0.107187
+test_linear_algebra 1 0.09345
+test_ode 1 0.199078
+test_root_finding 1 0.107768
+---

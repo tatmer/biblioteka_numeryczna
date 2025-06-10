@@ -1,0 +1,1 @@
+/usr/bin/c++  -arch arm64 -Wl,-search_paths_first -Wl,-headerpad_max_install_names CMakeFiles/example_integration.dir/examples/example_integration.cpp.o -o example_integration  libnumerix.a
