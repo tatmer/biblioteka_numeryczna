@@ -20,27 +20,29 @@ Każda funkcja jest zaimplementowana z dbałością o poprawność numeryczną i
 ## Instalacja i Budowa
 Aby skompilować bibliotekę i przykłady, wykonaj następujące kroki:
 
-1.  **Sklonuj repozytorium:**
-    ```bash
-    git clone [https://github.com/TwojaNazwaUzytkownika/nazwa_repozytorium.git](https://github.com/tatmer/biblioteka_numeryczna.git)
-    cd nazwa_repozytorium
+1.  **Sklonuj repozytorium:**
+    ```bash
+    git clone [https://github.com/TwojaNazwaUzytkownika/nazwa_repozytorium.git](https://github.com/TwojaNazwaUzytkownika/nazwa_repozytorium.git)
+    cd nazwa_repozytorium
+    ```
+    (Zmień `https://github.com/TwojaNazwaUzytkownika/nazwa_repozytorium.git` na rzeczywisty link do Twojego repozytorium)
 
-2.  **Utwórz katalog `build` i przejdź do niego:**
-    ```bash
-    mkdir build
-    cd build
-    ```
+2.  **Utwórz katalog `build` i przejdź do niego:**
+    ```bash
+    mkdir build
+    cd build
+    ```
 
-3.  **Skonfiguruj projekt za pomocą CMake:**
-    ```bash
-    cmake ..
-    ```
+3.  **Skonfiguruj projekt za pomocą CMake:**
+    ```bash
+    cmake ..
+    ```
 
-4.  **Zbuduj projekt:**
-    ```bash
-    cmake --build .
-    ```
-    Spowoduje to skompilowanie biblioteki (np. `libnumerix.a`), plików wykonywalnych testów oraz przykładów.
+4.  **Zbuduj projekt:**
+    ```bash
+    cmake --build .
+    ```
+    Spowoduje to skompilowanie biblioteki (np. `libnumerix.a`), plików wykonywalnych testów oraz przykładów.
 
 ## Struktura Projektu
 - `include/`: Zawiera pliki nagłówkowe (`.h`) z deklaracjami funkcji.
@@ -49,7 +51,12 @@ Aby skompilować bibliotekę i przykłady, wykonaj następujące kroki:
 - `examples/`: Zawiera pliki demonstracyjne prezentujące użycie biblioteki.
 - `CMakeLists.txt`: Główny plik konfiguracyjny CMake do budowania projektu.
 - `README.md`: Ten plik.
-  
+
+## Testowanie
+Aby uruchomić wszystkie testy jednostkowe i upewnić się, że biblioteka działa poprawnie, wykonaj następujące polecenie z katalogu `build`:
+```bash
+ctest
+ ```
 ## Przykłady Użycia
 W katalogu `examples/` znajdziesz pliki `.cpp` demonstrujące użycie poszczególnych modułów biblioteki. Możesz uruchomić je z katalogu `build` po skompilowaniu projektu (np. `cmake --build .`).
 
@@ -57,9 +64,3 @@ W katalogu `examples/` znajdziesz pliki `.cpp` demonstrujące użycie poszczegó
 Ten przykład pokazuje, jak używać metod bisekcji, Newtona, siecznych i Regula Falsi do znajdowania pierwiastków różnych funkcji.
 ```bash
 ./example_root_finding
-
-
-## Testowanie
-Aby uruchomić wszystkie testy jednostkowe i upewnić się, że biblioteka działa poprawnie, wykonaj następujące polecenie z katalogu `build`:
-```bash
-ctest
