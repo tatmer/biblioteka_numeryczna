@@ -57,7 +57,8 @@ W katalogu `examples/` znajdziesz pliki `.cpp` demonstrujące użycie poszczegó
 Ten przykład pokazuje, jak używać metod bisekcji, Newtona, siecznych i Regula Falsi do znajdowania pierwiastków różnych funkcji.
 ```bash
 ./example_root_finding
-## Testowanie
+
+### Testowanie
 Aby uruchomić wszystkie testy jednostkowe i upewnić się, że biblioteka działa poprawnie, wykonaj następujące polecenie z katalogu `build`:
 ```bash
 ctest
