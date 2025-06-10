@@ -22,10 +22,9 @@ Aby skompilować bibliotekę i przykłady, wykonaj następujące kroki:
 
 1.  **Sklonuj repozytorium:**
     ```bash
-    git clone [https://github.com/TwojaNazwaUzytkownika/nazwa_repozytorium.git](https://github.com/TwojaNazwaUzytkownika/nazwa_repozytorium.git)
+    git clone [https://github.com/tatmer/biblioteka_numeryczna.git]
     cd nazwa_repozytorium
     ```
-    (Zmień `https://github.com/TwojaNazwaUzytkownika/nazwa_repozytorium.git` na rzeczywisty link do Twojego repozytorium)
 
 2.  **Utwórz katalog `build` i przejdź do niego:**
     ```bash
