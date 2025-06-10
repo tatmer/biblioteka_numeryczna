@@ -22,7 +22,7 @@ Aby skompilować bibliotekę i przykłady, wykonaj następujące kroki:
 
 1.  **Sklonuj repozytorium:**
     ```bash
-    git clone [https://github.com/tatmer/biblioteka_numeryczna.git]
+    git clone [https://github.com/tatmer/biblioteka_numeryczna.git](https://github.com/tatmer/biblioteka_numeryczna.git)
     cd nazwa_repozytorium
     ```
 
